@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% block content %}
+
+</ul>
+<form action="/newpost" method="POST">
+    <label for="blog_title">New Title</label>
+    <br> {% with messages = get_flashed_messages(category_filter=['title']) %} {% for message in messages %}
+    <div>{{message}}</div>
+    {% endfor %} {% endwith %}
+    <input type="text" id="blog_title" name="blog_title">
+    <br>
+    <label for="blog_post">New Post</label>
+    <br> {% with messages = get_flashed_messages(category_filter=['body']) %} {% for message in messages %}
+    <div>{{message }}</div>
+    {% endfor %} {% endwith %}
+    <textarea name="blog_post" id="blog_post" cols="30" rows="10"></textarea>
+    <br>
+    <input type="submit">
+</form>
+{% endblock %}
